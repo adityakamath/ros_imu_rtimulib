@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 2.8.3)
-project(rtimulib_ros)
+project(ros_imu_rtimulib)
 
 find_package(catkin REQUIRED COMPONENTS
   roscpp
@@ -7,7 +7,7 @@ find_package(catkin REQUIRED COMPONENTS
 )
 
 catkin_package(
-    LIBRARIES rtimulib_ros
+    LIBRARIES imu_rtimulib
     CATKIN_DEPENDS roscpp sensor_msgs
 )
 
@@ -15,14 +15,14 @@ include_directories(
   ${catkin_INCLUDE_DIRS}
 )
 
-add_executable(${PROJECT_NAME} src/${PROJECT_NAME}.cpp)
+add_executable(${PROJECT_NAME}_node src/rtimulib_ros.cpp)
 
-target_link_libraries(${PROJECT_NAME}
+target_link_libraries(${PROJECT_NAME}_node
   ${catkin_LIBRARIES}
   RTIMULib
 )
 
-install(TARGETS ${PROJECT_NAME}
+install(TARGETS ${PROJECT_NAME}_node
   ARCHIVE DESTINATION ${CATKIN_PACKAGE_LIB_DESTINATION}
   LIBRARY DESTINATION ${CATKIN_PACKAGE_LIB_DESTINATION}
   RUNTIME DESTINATION ${CATKIN_PACKAGE_BIN_DESTINATION}
