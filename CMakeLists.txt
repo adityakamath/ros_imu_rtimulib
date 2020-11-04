@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 2.8.3)
-project(ros_imu_rtimulib)
+project(imu_rtimulib)
 
 find_package(catkin REQUIRED COMPONENTS
   roscpp
